@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\Include">
+      <UniqueIdentifier>{8fdba41f-bb10-4ab5-9fdb-49c5e09e8a4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\TabInput">
+      <UniqueIdentifier>{b2d05015-490b-4724-9ce1-cc4bb6bc98a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\TabMode">
+      <UniqueIdentifier>{af08ad43-0342-4ad1-a321-99e17655894b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Test">
+      <UniqueIdentifier>{672c4792-284d-4a7c-90b3-79b15a87be6b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TabInput.c">
+      <Filter>소스 파일\TabInput</Filter>
+    </ClCompile>
+    <ClCompile Include="TabMode.c">
+      <Filter>소스 파일\TabMode</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.c">
+      <Filter>소스 파일\Test</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TabInput.h">
+      <Filter>소스 파일\TabInput</Filter>
+    </ClInclude>
+    <ClInclude Include="TabMode.h">
+      <Filter>소스 파일\TabMode</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>소스 파일\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
