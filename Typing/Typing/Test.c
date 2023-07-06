@@ -1,4 +1,24 @@
 #include "Test.h"
+
+int global = 23;
+
+void Test()
+{
+    printf("인풋: %wc, %d\n", Hand_Input, Hand_Input);
+    if (Hand_Input == BACKSPACE)
+        PopLine(Hand_Line);
+    else if (ValidWChar(Hand_Input))
+        PushLine(Hand_Line, Hand_Input);
+
+    printf("%ws\n", Hand_Line);
+    //global = 42;
+}
+
+void test()
+{
+    //ReadAndWrite("..\\TextFile\\Page\\Short\\test.txt");
+}
+
 void strcpy2(wchar_t* s, wchar_t* t) {
     while (*t) {
         *s = *t;
@@ -11,15 +31,6 @@ void strcpy2(wchar_t* s, wchar_t* t) {
 void removeChar(wchar_t* word, wchar_t idxToDel) {
 
     memmove(&word[idxToDel], &word[idxToDel + 1], strlen(word) - idxToDel);
-}
-
-
-void test()
-{
-    printf("======================test 시작=================\n");
-    const char* path = "..\\test.txt";
-    ReadAndWrite(path);
-    printf("======================test 끝 ==================\n");
 }
 
 
@@ -81,9 +92,9 @@ void ReadAndWrite(const char* path)
         // Program exits if the file pointer returns NULL.
         exit(1);
     }
-    char* tempReader[MAX_STRING];
+    wchar_t* tempReader[MAX_STRING];
     readLine(fptr, tempReader);
-    printf("%s\n", tempReader);
+    printf("%ws\n", tempReader);
     
     //fprintf(fptr, "asdfas가지가df");
     
@@ -91,19 +102,20 @@ void ReadAndWrite(const char* path)
 }
 
 
-int readLine(FILE* f, char* buffer)
+int readLine(FILE* f, wchar_t* buffer)
 {
-    char c;
+    wchar_t c;
     int i;
 
     memset(buffer, 0, MAX_STRING);
-    const char a = '가';
-    printf("%d, %d, %d\n", '가', L'가', a);
+
     for (i = 0; i < MAX_STRING; i++)
     {
-        int c = fgetc(f);
-        printf("%d", 'a' == c);
-        //printf("%c", c);
+        //_fgetwchar
+        //fgetwchar
+        wchar_t c = fgetc(f);
+        printf("%d", L'ㄱ' == c);
+
         if (!feof(f))
         {
             if (c == '\r')
@@ -127,6 +139,41 @@ int readLine(FILE* f, char* buffer)
     return -1;
 }
 
+int wreadLine(FILE* f, wchar_t* buffer)
+{
+    wint_t c;
+    int i;
+
+    memset(buffer, 0, MAX_STRING);
+
+    for (i = 0; i < MAX_STRING; i++)
+    {
+        c = fgetc(f);
+        printf("%d", 'a' == c);
+
+        if (!feof(f))
+        {
+            if (c == L'\r')
+                buffer[i] = 0;
+            else if (c == L'\n')
+            {
+                buffer[i] = 0;
+
+                return i + 1;
+            }
+            else
+                buffer[i] = c;
+        }
+        else
+        {
+            //fprintf(stderr, "read_line(): recv returned %d\n", c);
+            return -1;
+        }
+    }
+
+    return -1;
+
+}
 int compareLine(wchar_t* original, wchar_t* compare)
 {
     int rightCount = 0;
@@ -147,3 +194,4 @@ int compareLine(wchar_t* original, wchar_t* compare)
     }
     return rightCount;
 }
+

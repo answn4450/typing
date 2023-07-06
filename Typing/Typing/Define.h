@@ -2,12 +2,27 @@
 
 #include "Include.h"
 
-#define MAX_STRING 20000
+#define WINDOW_X0 2
+#define WINDOW_Y0 2
 
-extern const char CONST_A;
 
-// application current stat
-// wint_t 의 int 값을 바꾼다.
+#define MAX_STRING 2000
+#define MAX_PAGE 1000
 
 #define BACKSPACE 8
-#define SOURCEPATH ".."
+#define ENTER 13
+#define ESC 7
+
+
+#define MODE_SETTING 0
+#define MODE_PLAY 1
+
+#define PLAY_MODE 0
+
+#define MODE_PLAY_PAGE 0
+#define PLAY_PAGE_SHORT 0
+#define PLAY_PAGE_LONG 1
+
+#define SOURCEPATH L"..\\Page\\Short\\test.txt"
+#define PAGE_LONG_PATH = L"..\\Page\\Long\\"; 
+#define PAGE_SHORT_PATH = L"..\\Page\\Short\\";

@@ -25,6 +25,18 @@
     <Filter Include="소스 파일\Test">
       <UniqueIdentifier>{672c4792-284d-4a7c-90b3-79b15a87be6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01.Modes">
+      <UniqueIdentifier>{9c1c59ea-eaac-4e7c-8b37-51e5229f28d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Modes\Setting">
+      <UniqueIdentifier>{56b0f458-a7f6-4ca6-b550-e897cc00da11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Modes\Play">
+      <UniqueIdentifier>{94e0eb93-6c91-4a87-9664-f1a272829310}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Modes\Play\Page">
+      <UniqueIdentifier>{5d5b6722-be0c-496e-aa66-88c309c759ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -38,6 +50,15 @@
     </ClCompile>
     <ClCompile Include="Test.c">
       <Filter>소스 파일\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Setting.c">
+      <Filter>소스 파일\01.Modes\Setting</Filter>
+    </ClCompile>
+    <ClCompile Include="Play.c">
+      <Filter>소스 파일\01.Modes\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Page.c">
+      <Filter>소스 파일\01.Modes\Play\Page</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +75,18 @@
       <Filter>헤더 파일\Include</Filter>
     </ClInclude>
     <ClInclude Include="Include.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Setting.h">
+      <Filter>소스 파일\01.Modes\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="Play.h">
+      <Filter>소스 파일\01.Modes\Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Page.h">
+      <Filter>소스 파일\01.Modes\Play\Page</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
       <Filter>헤더 파일\Include</Filter>
     </ClInclude>
   </ItemGroup>

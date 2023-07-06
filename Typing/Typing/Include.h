@@ -14,6 +14,10 @@
 #include <ctype.h>
 
 #include "Define.h"
-#include "TabInput.h"
+#include "Global.h"
 
+#include "TabInput.h"
 #include "Test.h"
+
+#include "Setting.h"
+#include "Play.h"

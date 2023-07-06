@@ -1,51 +1,86 @@
-﻿// 문자열이 아닌것과 한글을 섞어 치면 출력 전체가 제대로 되지 않음.해결중
+﻿// Play는 
 
 #include "Include.h"
 
-void Draw();
+wchar_t Hand_Line[MAX_STRING];
+wchar_t Hand_Input;
+
+int Mode = MODE_PLAY;
+
 
 int main()
 {
-    // 유저가 쓰는 중인 있는 한 줄. 제출되지 않고 현재 수정 중인 글 칸은 포함하지 않는다. 
-    wchar_t Hand_Line[MAX_STRING];
-
     setlocale(LC_ALL, "");
+
     time_t rawtime;
     struct tm* timeinfo;
-    
+
     time(&rawtime);
     timeinfo = localtime(&rawtime);
-    printf("Current local time and date: %s", asctime(timeinfo));
+    wcscpy(Hand_Line, L"");
     
-    printf("간단한 타자연습\n");
-
-    wcscpy(Hand_Line, L"핸드 라인 가지가 그렇게");
-    wcscat(Hand_Line, L"asdf가지");
-
+    printf("현재: % s", asctime(timeinfo));
+    printf("간단한 타자연습.\n");
+    printf("ESC: 모드 스위치.\n");
+    printf("Mode 1 = 설정, Mode 2 = 플레이\n");
     //test();
+
+    switch (Mode)
+    {
+    case(MODE_PLAY):
+        OpenPlay();
+    default:
+        break;
+    }
 
     while (true)
     {
-        if (_kbhit())
+        // 한글 입력 중 일때 띄워놓을 위치 
+        gotoxy(WINDOW_X0+20, WINDOW_Y0+20);
+        
+        Hand_Input = _getwch();
+        system("cls");
+        gotoxy(WINDOW_X0, WINDOW_Y0 + 1);
+
+        if (Hand_Input == BACKSPACE)
+            PopLine(Hand_Line);
+        else if (ValidWChar(Hand_Input))
+            PushLine(Hand_Line, Hand_Input);
+        
+        if (Hand_Input == ESC)
         {
-            system("cls");
-            gotoxy(10, 10);
-            wchar_t input = _getwch();
-            printf("인풋: %wc\n",input);
+            // 모드 전환 준비를 한다.
+            switch (Mode)
+            {
+            case MODE_SETTING:
+                SaveSetting();
+                OpenPlay();
+                break;
+            case MODE_PLAY:
+                SavePlay();
+                OpenSetting();
+                break;
+            }
 
-            printf("===입력 중===");
-            
-            if (input == BACKSPACE)
-                PopLine(Hand_Line);
-            else
-                PushLine(Hand_Line, input);
-            
-            printf("%ws\n", Hand_Line);
+            Mode = 1 - Mode;
         }
-    }
-    return 0;
-}
 
-void Draw()
-{
+        switch (Mode)
+        {
+        case MODE_SETTING:
+            printf("셋팅 모드\n");
+            Setting();
+            break;
+        case MODE_PLAY:
+            printf("플레이 모드\n");
+            Play();
+            break;
+        default:
+            printf("테스트 모드\n");
+            Test();
+        }
+
+    }
+
+    return 0;
 }

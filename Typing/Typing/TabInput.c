@@ -1,5 +1,4 @@
 #include "TabInput.h"
-#include "Test.h"
 
 
 int GetSizeLine(wchar_t* Line)
@@ -17,8 +16,11 @@ int GetSizeLine(wchar_t* Line)
 
 void PushLine(wchar_t* _Line, wchar_t _wcell)
 {
-    _Line[GetSizeLine(_Line) + 1] = '\0';
-    _Line[GetSizeLine(_Line)] = _wcell;
+    if (GetSizeLine(_Line) < MAX_STRING)
+    {
+        _Line[GetSizeLine(_Line) + 1] = '\0';
+        _Line[GetSizeLine(_Line)] = _wcell;
+    }
 }
 
 void PopLine(wchar_t* _Line)
@@ -46,5 +48,15 @@ void SubLine(wchar_t* _Line, int _index)
 
 bool ValidWChar(wchar_t _input)
 {
-    return true;
+    bool valid = true;
+    if (_input == BACKSPACE)
+        valid = false;
+
+    if (_input == ENTER)
+        valid = false;
+
+    if (_input == ESC)
+        valid = false;
+
+    return valid;
 }
