@@ -4,19 +4,11 @@ int global = 23;
 
 void Test()
 {
-    printf("¿Œ«≤: %wc, %d\n", Hand_Input, Hand_Input);
-    if (Hand_Input == BACKSPACE)
-        PopLine(Hand_Line);
-    else if (ValidWChar(Hand_Input))
-        PushLine(Hand_Line, Hand_Input);
-
-    printf("%ws\n", Hand_Line);
-    //global = 42;
 }
 
 void test()
 {
-    //ReadAndWrite("..\\TextFile\\Page\\Short\\test.txt");
+    //TapWLine(0,0,23'0')
 }
 
 void strcpy2(wchar_t* s, wchar_t* t) {
@@ -173,25 +165,5 @@ int wreadLine(FILE* f, wchar_t* buffer)
 
     return -1;
 
-}
-int compareLine(wchar_t* original, wchar_t* compare)
-{
-    int rightCount = 0;
-    while (*original != '\0')
-    {
-        if (*compare == '\0')
-            return rightCount;
-        else
-        {
-            if (*original == *compare)
-                rightCount += 1;
-            else
-                rightCount -= 1;
-
-            ++original;
-            ++compare;
-        }
-    }
-    return rightCount;
 }
 

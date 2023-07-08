@@ -3,15 +3,19 @@
 #include "Include.h"
 
 #define WINDOW_X0 2
-#define WINDOW_Y0 2
-
+#define WINDOW_Y0 1
+#define WINDOW_Y1 25
+#define WINDOW_X1 100
 
 #define MAX_STRING 2000
 #define MAX_PAGE 1000
+#define MAX_PAGE_LINE 5
 
 #define BACKSPACE 8
 #define ENTER 13
-#define ESC 7
+#define ESC 27
+#define DOWN 27
+#define UP 27
 
 
 #define MODE_SETTING 0
@@ -24,5 +28,5 @@
 #define PLAY_PAGE_LONG 1
 
 #define SOURCEPATH L"..\\Page\\Short\\test.txt"
-#define PAGE_LONG_PATH = L"..\\Page\\Long\\"; 
-#define PAGE_SHORT_PATH = L"..\\Page\\Short\\";
+#define PAGE_LONG_PATH = L"..\\Page\\Long\\"
+#define PAGE_SHORT_PATH = L"..\\Page\\Short\\"

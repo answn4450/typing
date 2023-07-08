@@ -5,52 +5,51 @@
 wchar_t Hand_Line[MAX_STRING];
 wchar_t Hand_Input;
 
-int Mode = MODE_PLAY;
+int TapMode = MODE_PLAY;
 
+int TapCellX;
+int TapCellY;
+
+ bool TapPause = false;
 
 int main()
 {
     setlocale(LC_ALL, "");
 
-    time_t rawtime;
-    struct tm* timeinfo;
-
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
     wcscpy(Hand_Line, L"");
+
+    TapPause = false;
+    TapCellX = 0;
+    TapCellY = 0;
     
-    printf("현재: % s", asctime(timeinfo));
     printf("간단한 타자연습.\n");
     printf("ESC: 모드 스위치.\n");
-    printf("Mode 1 = 설정, Mode 2 = 플레이\n");
+
     //test();
 
-    switch (Mode)
-    {
-    case(MODE_PLAY):
+    if (TapMode == MODE_PLAY)
         OpenPlay();
-    default:
-        break;
-    }
+    else if (TapMode == MODE_SETTING)
+        OpenSetting();
 
     while (true)
     {
-        // 한글 입력 중 일때 띄워놓을 위치 
-        gotoxy(WINDOW_X0+20, WINDOW_Y0+20);
+        // 입력중인 문자가 표시되는 위치.
+        gotoxy(TapCellX, TapCellY);
         
         Hand_Input = _getwch();
+
         system("cls");
         gotoxy(WINDOW_X0, WINDOW_Y0 + 1);
 
         if (Hand_Input == BACKSPACE)
-            PopLine(Hand_Line);
+            PopWLine(Hand_Line);
         else if (ValidWChar(Hand_Input))
-            PushLine(Hand_Line, Hand_Input);
-        
+            PushWLine(Hand_Line, Hand_Input);
+
         if (Hand_Input == ESC)
         {
-            // 모드 전환 준비를 한다.
-            switch (Mode)
+            switch (TapMode)
             {
             case MODE_SETTING:
                 SaveSetting();
@@ -62,22 +61,37 @@ int main()
                 break;
             }
 
-            Mode = 1 - Mode;
+            TapPause = !TapPause;
         }
 
-        switch (Mode)
+        if (TapPause)
         {
-        case MODE_SETTING:
-            printf("셋팅 모드\n");
-            Setting();
-            break;
-        case MODE_PLAY:
-            printf("플레이 모드\n");
-            Play();
-            break;
-        default:
-            printf("테스트 모드\n");
-            Test();
+            gotoxy(5, 5);
+            printf("===================");
+            gotoxy(5, 6);
+            printf("=      pause      =");
+            gotoxy(5, 7);
+            printf("===================");
+            gotoxy(5, 8);
+            printf("========enter======");
+        }
+        else
+        {
+            gotoxy(WINDOW_X0, WINDOW_Y0);
+            switch (TapMode)
+            {
+            case MODE_SETTING:
+                printf("셋팅 모드\n");
+                Setting();
+                break;
+            case MODE_PLAY:
+                printf("플레이 모드\n");
+                Play();
+                break;
+            default:
+                printf("테스트 모드\n");
+                Test();
+            }
         }
 
     }

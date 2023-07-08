@@ -16,4 +16,3 @@ void AutoHangul();
 void ReadAndWrite(const char* path);
 int readLine(FILE* f, char* buffer);
 int wreadLine(FILE* f, wchar_t* buffer);
-int compareLine(wchar_t* original, wchar_t* compare);

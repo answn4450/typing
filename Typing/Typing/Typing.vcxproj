@@ -128,23 +128,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="Menu.c" />
     <ClCompile Include="Play.c" />
     <ClCompile Include="Setting.c" />
     <ClCompile Include="Page.c" />
-    <ClCompile Include="TabInput.c" />
-    <ClCompile Include="TabMode.c" />
+    <ClCompile Include="TapInput.c" />
+    <ClCompile Include="TapDraw.c" />
     <ClCompile Include="Test.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Include.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Play.h" />
     <ClInclude Include="Setting.h" />
     <ClInclude Include="Page.h" />
-    <ClInclude Include="TabInput.h" />
-    <ClInclude Include="TabMode.h" />
+    <ClInclude Include="TapInput.h" />
+    <ClInclude Include="TapDraw.h" />
     <ClInclude Include="Test.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\구상.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

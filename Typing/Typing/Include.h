@@ -16,8 +16,9 @@
 #include "Define.h"
 #include "Global.h"
 
-#include "TabInput.h"
+#include "TapInput.h"
 #include "Test.h"
 
 #include "Setting.h"
 #include "Play.h"
+#include "TapDraw.h"

@@ -4,3 +4,5 @@
 void Page();
 void OpenPage(int mode);
 void SavePage();
+
+void PagePerInput();
