@@ -4,6 +4,7 @@
 
 wchar_t Hand_Line[MAX_STRING];
 wchar_t Hand_Input;
+wchar_t* TapFilePath;
 
 int TapMode = MODE_PLAY;
 
@@ -25,7 +26,7 @@ int main()
     printf("간단한 타자연습.\n");
     printf("ESC: 모드 스위치.\n");
 
-    //test();
+    test();
 
     if (TapMode == MODE_PLAY)
         OpenPlay();
@@ -53,11 +54,9 @@ int main()
             {
             case MODE_SETTING:
                 SaveSetting();
-                OpenPlay();
                 break;
             case MODE_PLAY:
                 SavePlay();
-                OpenSetting();
                 break;
             }
 

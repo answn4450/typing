@@ -6,3 +6,5 @@ void OpenPage(int mode);
 void SavePage();
 
 void PagePerInput();
+
+int GetMaxLine(int page);

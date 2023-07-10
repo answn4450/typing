@@ -8,7 +8,44 @@ void Test()
 
 void test()
 {
-    //TapWLine(0,0,23'0')
+    TapFilePath = L"..\\TextFile\\Page\\Short\\test.txt";
+    FILE* fptr;
+    fptr = _wfopen(TapFilePath, L"r, ccs=UTF-8");
+    wchar_t* buffer[10][5][MAX_STRING];
+    while (fgetws(buffer[0][0], MAX_STRING, fptr))
+        printf("%ws", buffer[0][0]);
+    int a = CountLine(buffer[0][0]);
+    fclose(fptr);
+    /*
+    wchar_t Pages[MAX_PAGE][MAX_PAGE_LINE][MAX_STRING];
+    TapFilePath = L"..\\TextFile\\Page\\Short\\test.txt";
+    FILE* fptr;
+    fptr = _wfopen(TapFilePath, L"r, ccs=UTF-8");
+
+    int currentPage = 0;
+    int currentLine = 0;
+    int nextPage = 0;
+    int nextLine = 0;
+
+    int count = 0;
+
+    while (fgetws(Pages[nextPage][nextLine], MAX_STRING, fptr))
+    {
+        if (nextLine == MAX_PAGE)
+        {
+            CurrentPage = nextPage;
+            CurrentLine = nextLine;
+            nextPage += 1;
+            nextLine = 0;
+        }
+        else
+            nextLine++;
+    }
+
+    PageCount = currentPage;
+    PageLastLineCount = currentLine;
+    */
+
 }
 
 void strcpy2(wchar_t* s, wchar_t* t) {

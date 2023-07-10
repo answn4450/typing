@@ -23,5 +23,8 @@ extern int TapMode;
 // 입력 중인 유니코드 한 칸을 띄울 위치.
 extern int TapCellX;
 extern int TapCellY;
-
+extern wchar_t* TapFilePath;
 extern bool TapPause;
+
+extern int TapPlayPage;
+extern int TapPlayPageLine;
