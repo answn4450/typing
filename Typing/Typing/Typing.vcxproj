@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
-    <ClCompile Include="Menu.c" />
     <ClCompile Include="Play.c" />
     <ClCompile Include="Setting.c" />
     <ClCompile Include="Page.c" />
@@ -137,10 +136,11 @@
     <ClCompile Include="Test.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AccessLevel1.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Include.h" />
-    <ClInclude Include="Menu.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="Play.h" />
     <ClInclude Include="Setting.h" />
     <ClInclude Include="Page.h" />

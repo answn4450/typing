@@ -7,7 +7,7 @@ int PageCountBase;
 int PageCountRight;
 
 int PageMaxIndex;
-int PageLastLineCount;
+int PageLastLineIndex;
 
 bool pause;
 
@@ -25,10 +25,15 @@ void Page()
 			CountLine(Pages[PageIndex][LineIndex])
 		);
 		PageCountRight += CountRight(Hand_Line, Pages[PageIndex][LineIndex]);
-		wcscpy(HandLines[LineIndex], Hand_Line);
-		wcscpy(Hand_Line, L"");
 
-		if (LineIndex == GetMaxLineIndex(PageIndex, LineIndex))
+		wcscpy(HandLines[LineIndex], Hand_Line);
+
+		if (PageIndex == PageMaxIndex && LineIndex == PageLastLineIndex)
+			TapPlayEnd = true;
+		else
+			wcscpy(Hand_Line, L"");
+
+		if (LineIndex == GetMaxLineIndex(PageIndex))
 		{
 			pause = true;
 			if (PageIndex != PageMaxIndex)
@@ -45,36 +50,27 @@ void Page()
 	int pageSumRight = PageCountRight + CountRight(Hand_Line, Pages[PageIndex][LineIndex]);
 
 	if (pageSumBase == 0)
-	{
 		TapPlayPercent = 0.0f;
-		TapPlaySpeed = 0;
-	}
 	else
-	{
 		TapPlayPercent = (int)(
 			100.0f * (float)(pageSumRight) / (float)(pageSumBase)
 			);
-		if (TapElapsed <= 0)
-			TapPlaySpeed = 0.0f;
-		else
-			TapPlaySpeed = (pageSumBase * 60.0f / TapElapsed);
-	}
 
 	int currentY = 3;
-	int printMaxLine;
+	
 	gotoxy(6, 6);
-	printf("%d", GetMaxLineIndex(PageIndex));
-	for (int i = 0; i < GetMaxLineIndex(PageIndex); ++i)
+	
+	for (int i = 0; i <= GetMaxLineIndex(PageIndex); ++i)
 	{
-		TapWLine(WINDOW_X0 + 4, WINDOW_Y0 + currentY, Pages[PageIndex][i]);
+		DrawTapWLine(WINDOW_X0 + 4, WINDOW_Y0 + currentY, Pages[PageIndex][i]);
 		++currentY;
 		if (i < LineIndex)
-			TapWLine(WINDOW_X0 + 4, WINDOW_Y0 + currentY, HandLines[i]);
+			DrawTapWLine(WINDOW_X0 + 4, WINDOW_Y0 + currentY, HandLines[i]);
 		else if (i == LineIndex)
 		{
 			TapCellX = WINDOW_X0;
 			TapCellY = WINDOW_Y0 + currentY;
-			TapWLine(WINDOW_X0 + 4, WINDOW_Y0 + currentY, Hand_Line);
+			DrawTapWLine(WINDOW_X0 + 4, WINDOW_Y0 + currentY, Hand_Line);
 		}
 		++currentY;
 		++currentY;
@@ -82,7 +78,7 @@ void Page()
 
 }
 
-void OpenPage(int playPageMode)
+void InitPage(int playPageMode)
 {
 	pause = false;
 	PageIndex = 0;
@@ -91,11 +87,8 @@ void OpenPage(int playPageMode)
 	PageCountRight = 0;
 
 	PageMaxIndex = 0;
-	PageLastLineCount = 0;
+	PageLastLineIndex = 0;
 
-	wcscpy(TapPlayTitle, L"테스트 파일");
-
-	TapFilePath = L"..\\TextFile\\Page\\Short\\test.txt";
 	FILE* fptr;
 	fptr = _wfopen(TapFilePath, L"r, ccs=UTF-8");
 
@@ -120,25 +113,17 @@ void OpenPage(int playPageMode)
 	}
 
 	PageMaxIndex = currentPage;
-	PageLastLineCount = currentLine;
+	PageLastLineIndex = currentLine;
 
 	for (int i = 0; i < MAX_PAGE_LINE; ++i)
 		wcscpy(HandLines[i], L"");
 }
 
-void SavePage()
-{
-}
-
-void PagePerInput()
-{
-	
-}
 
 int GetMaxLineIndex(int page)
 {
 	if (page == PageMaxIndex)
-		return PageLastLineCount;
+		return PageLastLineIndex;
 	else
-		return MAX_PAGE_LINE;
+		return MAX_PAGE_LINE-1;
 }

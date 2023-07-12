@@ -5,7 +5,6 @@ extern wchar_t Hand_Line[MAX_STRING];
 extern wchar_t Hand_Input;
 extern bool Submit;
 
-extern int Play_Mode;
 extern int Play_Page_Short;
 
 extern clock_t TapStartTime;
@@ -18,7 +17,7 @@ extern int TapPlaySpeed;
 extern wchar_t TapPlayTitle[MAX_STRING];
 
 
-extern int TapMode;
+extern bool TapMode;
 
 // 입력 중인 유니코드 한 칸을 띄울 위치.
 extern int TapCellX;
@@ -28,3 +27,11 @@ extern bool TapPause;
 
 extern int TapPlayPage;
 extern int TapPlayPageLine;
+
+extern bool TapPlayEnd;
+
+extern int ModeSettingStep;
+extern int ModePlayStep;
+
+extern bool TapPause;
+extern wchar_t TapWChar;

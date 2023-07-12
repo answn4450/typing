@@ -47,19 +47,18 @@ void SubLine(wchar_t* _Line, int _index)
     }
 }
 
-bool ValidWChar(wchar_t _input)
+wchar_t FilterWChar(wchar_t _input)
 {
-    bool valid = true;
     if (_input == BACKSPACE)
-        valid = false;
+        return INVALID_WCHAR;
 
     if (_input == ENTER)
-        valid = false;
+        return INVALID_WCHAR;
 
     if (_input == ESC)
-        valid = false;
+        return INVALID_WCHAR;
 
-    return valid;
+    return _input;
 }
 
 int CountWchar(wchar_t input)

@@ -16,9 +16,6 @@
     <Filter Include="헤더 파일\Include">
       <UniqueIdentifier>{8fdba41f-bb10-4ab5-9fdb-49c5e09e8a4e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\TabInput">
-      <UniqueIdentifier>{b2d05015-490b-4724-9ce1-cc4bb6bc98a8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Test">
       <UniqueIdentifier>{672c4792-284d-4a7c-90b3-79b15a87be6b}</UniqueIdentifier>
     </Filter>
@@ -28,20 +25,23 @@
     <Filter Include="소스 파일\01.Modes\Setting">
       <UniqueIdentifier>{56b0f458-a7f6-4ca6-b550-e897cc00da11}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Include\Global">
+      <UniqueIdentifier>{931fb0c5-03ab-4aed-9c04-2d7bdd670718}</UniqueIdentifier>
+    </Filter>
     <Filter Include="소스 파일\01.Modes\Play">
       <UniqueIdentifier>{94e0eb93-6c91-4a87-9664-f1a272829310}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\01.Modes\Play\Page">
       <UniqueIdentifier>{5d5b6722-be0c-496e-aa66-88c309c759ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\04.Draw">
+    <Filter Include="소스 파일\Tools">
+      <UniqueIdentifier>{bad92f47-8aca-4aa7-9a99-32d8969e2c34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Tools\TapDraw">
       <UniqueIdentifier>{9cc94cda-1562-4ce7-9d35-6ad1b1057768}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Include\Global">
-      <UniqueIdentifier>{931fb0c5-03ab-4aed-9c04-2d7bdd670718}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\05.Menu">
-      <UniqueIdentifier>{3cd52493-92f6-4359-84bc-2539760f488e}</UniqueIdentifier>
+    <Filter Include="소스 파일\Tools\TapInput">
+      <UniqueIdentifier>{b2d05015-490b-4724-9ce1-cc4bb6bc98a8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,7 +49,7 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="TapInput.c">
-      <Filter>소스 파일\TabInput</Filter>
+      <Filter>소스 파일\Tools\TapInput</Filter>
     </ClCompile>
     <ClCompile Include="Test.c">
       <Filter>소스 파일\Test</Filter>
@@ -64,15 +64,12 @@
       <Filter>소스 파일\01.Modes\Play\Page</Filter>
     </ClCompile>
     <ClCompile Include="TapDraw.c">
-      <Filter>소스 파일\04.Draw</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.c">
-      <Filter>소스 파일\05.Menu</Filter>
+      <Filter>소스 파일\Tools\TapDraw</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TapInput.h">
-      <Filter>소스 파일\TabInput</Filter>
+      <Filter>소스 파일\Tools\TapInput</Filter>
     </ClInclude>
     <ClInclude Include="Test.h">
       <Filter>소스 파일\Test</Filter>
@@ -93,13 +90,16 @@
       <Filter>소스 파일\01.Modes\Play\Page</Filter>
     </ClInclude>
     <ClInclude Include="TapDraw.h">
-      <Filter>소스 파일\04.Draw</Filter>
+      <Filter>소스 파일\Tools\TapDraw</Filter>
     </ClInclude>
     <ClInclude Include="Global.h">
       <Filter>헤더 파일\Include\Global</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>소스 파일\05.Menu</Filter>
+    <ClInclude Include="main.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AccessLevel1.h">
+      <Filter>헤더 파일\Include\Global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

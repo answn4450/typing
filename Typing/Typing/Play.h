@@ -1,6 +1,8 @@
 #pragma once
 #include "Include.h"
+#include "Page.h"
+
 
 void Play();
-void OpenPlay();
+void InitPlay();
 void SavePlay();

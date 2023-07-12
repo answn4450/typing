@@ -10,7 +10,7 @@ void PopLine(char* _Line);
 void AddLine(wchar_t* Line, int index, wchar_t _wchar);
 void SubLine(wchar_t* Line, int _index);
 
-bool ValidWChar(wchar_t input);
+wchar_t FilterWChar(wchar_t input);
 
 int CountWchar(wchar_t input);
 int CountRight(wchar_t* base, wchar_t* compare);
