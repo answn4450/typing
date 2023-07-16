@@ -39,7 +39,6 @@ int main()
         gotoxy(TapCellX, TapCellY);
 
         Hand_Input = _getwch();
-
         if (TapPause)
             TapPause = false;
 
@@ -58,10 +57,8 @@ int main()
             TapWChar = FilterWChar(Hand_Input);
 
             if (TapWChar != INVALID_WCHAR)
-            {
                 PushWLine(Hand_Line, TapWChar);
-            }
-            else if (TapWChar == BACKSPACE)
+            else if (Hand_Input == BACKSPACE)
                 PopWLine(Hand_Line);
 
             if (TapWChar == ESC)
@@ -75,7 +72,7 @@ int main()
 
             if (TapMode == MODE_SETTING)
                 Setting();
-            else
+            if (TapMode == MODE_PLAY)
                 Play();
 
         }

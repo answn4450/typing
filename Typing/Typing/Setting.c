@@ -25,6 +25,7 @@ void Setting()
 
 	if (menuStep == 2)
 	{
+		menuStep = 1;
 		TapMode = MODE_PLAY;
 
 		TapFilePath = L"..\\TextFile\\Page\\Short\\test.txt";

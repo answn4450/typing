@@ -26,24 +26,22 @@ void Page()
 		);
 		PageCountRight += CountRight(Hand_Line, Pages[PageIndex][LineIndex]);
 
-		wcscpy(HandLines[LineIndex], Hand_Line);
-
-		if (PageIndex == PageMaxIndex && LineIndex == PageLastLineIndex)
+		if (LineIndex == GetMaxLineIndex(PageIndex) && PageIndex == PageMaxIndex)
 			TapPlayEnd = true;
 		else
-			wcscpy(Hand_Line, L"");
-
-		if (LineIndex == GetMaxLineIndex(PageIndex))
 		{
-			pause = true;
-			if (PageIndex != PageMaxIndex)
+			wcscpy(HandLines[LineIndex], Hand_Line);
+			wcscpy(Hand_Line, L"");
+			if (LineIndex == GetMaxLineIndex(PageIndex))
 			{
 				PageIndex++;
 				LineIndex = 0;
 			}
+			else
+			{
+				LineIndex += 1;
+			}
 		}
-		else
-			LineIndex += 1;
 	}
 
 	int pageSumBase = PageCountBase + CountLine(Hand_Line);
