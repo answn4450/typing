@@ -62,7 +62,7 @@ void Play()
 void InitPlay()
 {
 	wcscpy(Hand_Line, L"");
-	InitPage(PLAY_PAGE_SHORT);
+	InitPage();
 	ModePlayStep = 1;
 	TapPlayEnd = false;
 	TapCount = 0;

@@ -1,10 +1,14 @@
-테스트 파일 asdfsaer 234 
+테스트 파일 asdfsaer 234
 123
-aaa
-asdfasdf
+Typing\TextFile\Page 에서 파일을 추가해 보시오.
+esc: 셋팅/플레이
+줄 글에 tab 포함 안됨. 줄 끝에 스페이스가 없도록 주의.
+설정에서 숫자키로 조작.
+피드백 환영
 asdfsdf
 asdfasd
 fsadfasdfsad
 asdfasf
 asdfasf
-sadf
+ㅇ
+마지막 줄

@@ -43,6 +43,9 @@
     <Filter Include="소스 파일\Tools\TapInput">
       <UniqueIdentifier>{b2d05015-490b-4724-9ce1-cc4bb6bc98a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\vendor">
+      <UniqueIdentifier>{8239d1bb-e41a-45fd-8d98-1f2b544a26ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -98,8 +101,8 @@
     <ClInclude Include="main.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
-    <ClInclude Include="AccessLevel1.h">
-      <Filter>헤더 파일\Include\Global</Filter>
+    <ClInclude Include="vendor\dirent.h">
+      <Filter>헤더 파일\vendor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

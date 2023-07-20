@@ -1,6 +1,7 @@
 #pragma once
 #include "Include.h"
 
+/*
 void test();
 void Test();
 
@@ -10,9 +11,10 @@ void removeChar(wchar_t* word, wchar_t idxToDel);
 void LoopChar(char* b);
 void LoopWChar(wchar_t* a);
 
-void gotoxy(int x, int y);
 
 void AutoHangul();
-void ReadAndWrite(const char* path);
+//void ReadAndWrite(const char* path);
 int readLine(FILE* f, char* buffer);
 int wreadLine(FILE* f, wchar_t* buffer);
+
+*/

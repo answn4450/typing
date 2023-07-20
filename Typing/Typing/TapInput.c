@@ -87,7 +87,7 @@ int CountRight(wchar_t* base, wchar_t* compare)
 int CountLine(wchar_t* line)
 {
     int count = 0;
-    while (*line != '\0')
+    while (*line != '\0' && *line !=L'\n')
     {
         count += CountWchar(*line);
         line++;

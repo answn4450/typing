@@ -76,7 +76,7 @@ void Page()
 
 }
 
-void InitPage(int playPageMode)
+void InitPage()
 {
 	pause = false;
 	PageIndex = 0;
@@ -87,27 +87,34 @@ void InitPage(int playPageMode)
 	PageMaxIndex = 0;
 	PageLastLineIndex = 0;
 
-	FILE* fptr;
-	fptr = _wfopen(TapFilePath, L"r, ccs=UTF-8");
-
 	int currentPage = 0;
 	int currentLine = 0;
 	int nextPage = 0;
 	int nextLine = 0;
 
-	int count = 0;
+	FILE* fptr;
+	_wfopen_s(&fptr, TapFilePath, L"r, ccs=UTF-8");
 
-	while (fgetws(Pages[nextPage][nextLine], MAX_STRING, fptr))
+	if (!fptr)
 	{
-		if (nextLine + 1 == MAX_PAGE_LINE)
+		fprintf(stderr, "error opening %ws: %s", TapFilePath, strerror(errno));
+	}
+	else
+	{
+		while (NULL != fgetws(Pages[nextPage][nextLine], MAX_STRING, fptr))
 		{
-			currentPage = nextPage;
 			currentLine = nextLine;
-			nextPage += 1;
-			nextLine = 0;
+			if (nextLine + 1 == MAX_PAGE_LINE)
+			{
+				nextPage++;
+				nextLine = 0;
+			}
+			else
+			{
+				currentPage = nextPage;
+				nextLine++;
+			}
 		}
-		else
-			nextLine++;
 	}
 
 	PageMaxIndex = currentPage;
@@ -115,6 +122,7 @@ void InitPage(int playPageMode)
 
 	for (int i = 0; i < MAX_PAGE_LINE; ++i)
 		wcscpy(HandLines[i], L"");
+
 }
 
 

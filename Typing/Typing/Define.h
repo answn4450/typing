@@ -25,6 +25,14 @@
 #define PLAY_PAGE_SHORT 0
 #define PLAY_PAGE_LONG 1
 
-#define SOURCEPATH L"..\\Page\\Short\\test.txt"
+//ºôµå À§Ä¡¿¡ ¸ÂÃá ÁÖ¼Ò
+/*
+#define SOURCE_FOLDER_SHORT L"..\\..\\TextFile\\Page\\Short\\"
+#define SOURCE_FOLDER_LONG L"..\\..\\TextFile\\Page\\Long\\"
+*/
+
+#define SOURCE_FOLDER_SHORT L"..\\TextFile\\Page\\Short\\"
+#define SOURCE_FOLDER_LONG L"..\\TextFile\\Page\\Long\\"
+
 
 #define INVALID_WCHAR 999

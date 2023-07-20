@@ -1,5 +1,6 @@
 #include "Test.h"
 
+    /*
 int global = 23;
 
 void Test()
@@ -8,7 +9,7 @@ void Test()
 
 void test()
 {
-    TapFilePath = L"..\\TextFile\\Page\\Short\\test.txt";
+    //TapFilePath = L"..\\TextFile\\Page\\Short\\test.txt";
     FILE* fptr;
     fptr = _wfopen(TapFilePath, L"r, ccs=UTF-8");
     wchar_t* buffer[10][5][MAX_STRING];
@@ -16,7 +17,6 @@ void test()
         printf("%ws", buffer[0][0]);
     int a = CountLine(buffer[0][0]);
     fclose(fptr);
-    /*
     wchar_t Pages[MAX_PAGE][MAX_PAGE_LINE][MAX_STRING];
     TapFilePath = L"..\\TextFile\\Page\\Short\\test.txt";
     FILE* fptr;
@@ -44,7 +44,6 @@ void test()
 
     PageCount = currentPage;
     PageLastLineCount = currentLine;
-    */
 
 }
 
@@ -71,15 +70,13 @@ void LoopChar(char* b)
         printf("%c\n", *b);
         ++b;
     }
-    /*
-    */
     printf("---\n");
 }
 
 void LoopWChar(wchar_t* a)
 {
     wchar_t* b = a;
-    printf("%wd", b);
+    //printf("%wd", b);
     int index = 0;
     while (*b)
     {
@@ -96,11 +93,7 @@ void LoopWChar(wchar_t* a)
 }
 
 
-void gotoxy(int x, int y)
-{
-    COORD CursorPosition = { x, y };
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), CursorPosition);
-}
+
 
 void AutoHangul()
 {
@@ -110,7 +103,6 @@ void AutoHangul()
     printf("asdfasdf%d\n", a);
     keybd_event(VK_HANGUL, 0, KEYEVENTF_KEYUP, 0);
 }
-
 
 void ReadAndWrite(const char* path)
 {
@@ -129,7 +121,6 @@ void ReadAndWrite(const char* path)
     
     fclose(fptr);
 }
-
 
 int readLine(FILE* f, wchar_t* buffer)
 {
@@ -204,3 +195,5 @@ int wreadLine(FILE* f, wchar_t* buffer)
 
 }
 
+
+    */

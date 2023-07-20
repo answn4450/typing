@@ -2,6 +2,6 @@
 #include "Include.h"
 
 void Page();
-void InitPage(int mode);
+void InitPage();
 
 int GetMaxLineIndex(int page);

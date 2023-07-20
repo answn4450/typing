@@ -7,7 +7,7 @@
 wchar_t Hand_Line[MAX_STRING];
 wchar_t Hand_Input;
 wchar_t TapWChar;
-wchar_t* TapFilePath;
+wchar_t TapFilePath[MAX_STRING];
 
 bool TapMode = MODE_SETTING;
 bool TapPause = false;
@@ -22,15 +22,15 @@ int main()
 {
     setlocale(LC_ALL, "");
     
-
-    TapFilePath = L"..\\TextFile\\Page\\Short\\test.txt";
+    wcscpy(TapFilePath, SOURCE_FOLDER_SHORT);
+    wcscat(TapFilePath, L"test.txt");
     wcscpy(Hand_Line, L"");
     TapMode = MODE_SETTING;
     InitSetting();
     InitPlay();
     
     Setting();
-
+    InitPlay();
     //test();
 
     while (true)
@@ -61,22 +61,13 @@ int main()
             else if (Hand_Input == BACKSPACE)
                 PopWLine(Hand_Line);
 
-            if (TapWChar == ESC)
-            {
-                if (TapMode == MODE_SETTING && ModeSettingStep > 0)
-                    ModeSettingStep--;
-
-                if (TapMode == MODE_PLAY && ModePlayStep > 0)
-                    ModePlayStep--;
-            }
-
             if (TapMode == MODE_SETTING)
                 Setting();
             if (TapMode == MODE_PLAY)
                 Play();
 
         }
-
+        
     }
 
     return 0;
